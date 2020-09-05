@@ -1,0 +1,107 @@
+[{
+        "id": 1,
+        "naziv_usluge": "PRANJE KOSE",
+        "kratka": "50RSD",
+        "duga": "50RSD",
+        "srednja": "100RSD"
+    },
+    {
+        "id": 2,
+        "naziv_usluge": "MUŠKO ŠIŠANJE",
+        "kratka": "300RSD",
+        "duga": "300RSD",
+        "srednja": "300RSD"
+    },
+    {
+        "id": 3,
+        "naziv_usluge": "ŽENSKO ŠIŠANJE",
+        "kratka": "400RSD",
+        "duga": "450RSD",
+        "srednja": "500RSD"
+    },
+    {
+        "id": 4,
+        "naziv_usluge": "PAKOVANJE-TRETMAN",
+        "kratka": "150RSD",
+        "duga": "1500RSD",
+        "srednja": "1500RSD"
+    },
+    {
+        "id": 5,
+        "naziv_usluge": "FENIRANJE",
+        "kratka": "350RSD",
+        "duga": "400RSD",
+        "srednja": "500RSD"
+    },
+    {
+        "id": 6,
+        "naziv_usluge": "FENIRANJE SA PEGLANJEM",
+        "kratka": "40RSD",
+        "duga": "600RSD",
+        "srednja": "650RSD"
+    },
+    {
+        "id": 7,
+        "naziv_usluge": "NAVIJANJE(VODENA)",
+        "kratka": "500RSD",
+        "duga": "700RSD",
+        "srednja": "800RSD"
+    },
+    {
+        "id": 8,
+        "naziv_usluge": "MINIVAL",
+        "kratka": "600RSD",
+        "duga": "700RSD",
+        "srednja": "800RSD"
+    },
+    {
+        "id": 9,
+        "naziv_usluge": "FARBANJE(DONETA FARBA)",
+        "kratka": "300RSD",
+        "duga": "300RSD",
+        "srednja": "300RSD"
+    },
+    {
+        "id": 10,
+        "naziv_usluge": "FARBANJE",
+        "kratka": "700RSD",
+        "duga": "800RSD",
+        "srednja": "900RSD"
+    },
+    {
+        "id": 11,
+        "naziv_usluge": "ŠATIRANJE(FILIJA)",
+        "kratka": "50RSD(KOM.)",
+        "duga": "60RSD(KOM.)",
+        "srednja": "60RSD(KOM.)"
+    },
+    {
+        "id": 12,
+        "naziv_usluge": "MINIVAL",
+        "kratka": "600RSD",
+        "duga": "700RSD",
+        "srednja": "800RSD"
+    },
+    {
+        "id": 13,
+        "naziv_usluge": "KOLORACIJA",
+        "kratka": "600RSD",
+        "duga": "700RSD",
+        "srednja": "800RSD"
+    },
+    {
+        "id": 14,
+        "naziv_usluge": "BLAJHANJE",
+        "kratka": "550RSD",
+        "duga": "550RSD",
+        "srednja": "550RSD"
+    },
+    {
+        "id": 15,
+        "naziv_usluge": "BLAJHANJE(CELA)",
+        "kratka": "650RSD",
+        "duga": "700RSD",
+        "srednja": "750RSD"
+    }
+
+]
