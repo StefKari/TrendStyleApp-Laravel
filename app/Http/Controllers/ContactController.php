@@ -8,12 +8,23 @@ use Illuminate\Support\Facades\Mail;
 
 class ContactController extends Controller
 {
+  /**
+    * Forwards to the contact page.
+    *
+    * @param  void
+    * @return View
+    */
     public function create() {
 
       return view('contact.kontakt');
     }
 
-
+    /**
+     * Sends data to mail
+     *
+     * @param  Request
+     * @return array
+     */
     public function store(Request $request) {
 
       $contact = request()->validate([
