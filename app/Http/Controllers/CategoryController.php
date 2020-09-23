@@ -12,15 +12,24 @@ class CategoryController extends Controller
       $this->middleware('is_admin',['except'=>['showAll']]);
     }
 
-
+    /**
+     * Display a listing of the data.
+     *
+     * @param void
+     * @return View
+     */
     public function index() {
 
       $category = Category::all();
       return view('category.kategorije')->with('category',$category);
     }
 
-
-
+    /**
+     * Store new data into the database.
+     *
+     * @param  Request
+     * @return array
+     */
     public function store(Request $request) {
 
       $this->validate($request, [
@@ -34,8 +43,12 @@ class CategoryController extends Controller
       return redirect('/kategorije')->with('success', 'Kategorija je dodata!');
     }
 
-
-
+    /**
+    * Display the specified data.
+    *
+    * @param  string
+    * @return array
+    */
     public function showAll($name) {
 
       $category = Category::all()->where('name','=',$name)->first();
@@ -47,6 +60,12 @@ class CategoryController extends Controller
     }
 
 
+    /**
+   * Deletes data from the database.
+   *
+   * @param  int
+   * @return array
+   */
     public function destroy($id) {
 
       $cat = Category::find($id);
