@@ -17,6 +17,12 @@ class GalleryController extends Controller
 
   }
 
+  /**
+   * Display a listing of the data.
+   *
+   * @param void
+   * @return View
+   */
   public function index() {
 
     $images = Gallery::paginate(6);
@@ -24,6 +30,12 @@ class GalleryController extends Controller
     return view('gallery.galerija')->with('images',$images);
   }
 
+  /**
+   * Forwards to the contact page if the admin role.
+   *
+   * @param void
+   * @return View
+   */
   public function create() {
 
     if(auth()->user()->is_admin == 1) {
@@ -35,6 +47,12 @@ class GalleryController extends Controller
 
   }
 
+  /**
+   * Store new data into the database.
+   *
+   * @param  Request
+   * @return array
+   */
   public function store(Request $request) {
 
     $this->validate($request, [
@@ -56,6 +74,12 @@ class GalleryController extends Controller
 
  }
 
+   /**
+  * Deletes data from the database.
+  *
+  * @param  int
+  * @return array
+  */
    public function destroy($id) {
 
       $gallery = Gallery::find($id);
