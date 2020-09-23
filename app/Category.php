@@ -7,6 +7,12 @@ use App\Post;
 
 class Category extends Model
 {
+  /**
+   * The attributes that are mass assignable.
+   *
+   * @var array
+   */
+
   protected $fillable = [
       'name',
       'created_at',
