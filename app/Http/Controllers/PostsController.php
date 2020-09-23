@@ -13,6 +13,12 @@ class PostsController extends Controller
       $this->middleware('is_admin',['except' => ['index','show']]);
     }
 
+    /**
+     * Display a listing of the data.
+     *
+     * @param void
+     * @return View
+     */
     public function index() {
 
       $posts = Post::orderBy('id','desc')->paginate(4);
@@ -24,6 +30,12 @@ class PostsController extends Controller
 
     }
 
+    /**
+     * Forwards to the usluge page.
+     *
+     * @param void
+     * @return View
+     */
     public function create() {
 
       if(auth()->user()->is_admin == 1) {
@@ -40,6 +52,12 @@ class PostsController extends Controller
 
     }
 
+    /**
+     * Store new data into the database.
+     *
+     * @param  Request
+     * @return array
+     */
     public function store(Request $request) {
 
       $this->validate($request, [
@@ -78,12 +96,24 @@ class PostsController extends Controller
 
     }
 
+      /**
+    * Display the specified data.
+    *
+    * @param  int  $id
+    * @return array
+    */
       public function show($id) {
 
         $post = Post::find($id);
         return view('posts.usluga')->with('post',$post);
     }
 
+    /**
+    * Displays the record being edited from the database.
+    *
+    * @param  int
+    * @return array
+    */
     public function edit($id) {
 
       $post = Post::find($id);
@@ -97,7 +127,13 @@ class PostsController extends Controller
       ]);
     }
 
-
+    /**
+     * Update data from database.
+     *
+     * @param  Request
+     * @param  int
+     * @return array
+     */
     public function update(Request $request, $id) {
 
       $this->validate($request,[
@@ -134,6 +170,12 @@ class PostsController extends Controller
       return redirect('/usluge')->with('success', 'Usluga je update!');
     }
 
+    /**
+    * Deletes data from the database.
+    *
+    * @param  int
+    * @return array
+    */
     public function destroy($id) {
 
       $post = Post::find($id);
