@@ -9,8 +9,8 @@ class PagesController extends Controller
   /**
    * Display a index page.
    *
-   * @param void
-   * @return View
+   * @param  void
+   * @return object
    */
     public function index() {
       return view('pages.index');
@@ -19,8 +19,8 @@ class PagesController extends Controller
     /**
      * Display a o-nama page.
      *
-     * @param void
-     * @return View
+     * @param  void
+     * @return object
      */
     public function onama() {
       return view('pages.o-nama');
@@ -29,8 +29,8 @@ class PagesController extends Controller
     /**
      * Display a cene page.
      *
-     * @param void
-     * @return View
+     * @param  void
+     * @return object
      */
     public function cene() {
       return view('pages.cene');
@@ -39,8 +39,8 @@ class PagesController extends Controller
     /**
      * Display a politika_privatnosti page.
      *
-     * @param void
-     * @return View
+     * @param  void
+     * @return object
      */
     public function politika_privatnosti() {
       return view('pages.politika-privatnosti');
