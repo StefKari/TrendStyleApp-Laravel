@@ -16,13 +16,14 @@ class PostsController extends Controller
     /**
      * Display a listing of the data.
      *
-     * @param void
-     * @return View
+     * @param  void
+     * @return object
      */
     public function index() {
 
       $posts = Post::orderBy('id','desc')->paginate(4);
       $categories = Category::all();
+
       return view('posts.usluge',[
         'posts'=>$posts,
         'categories' => $categories
@@ -33,14 +34,15 @@ class PostsController extends Controller
     /**
      * Forwards to the usluge page.
      *
-     * @param void
-     * @return View
+     * @param  void
+     * @return object
      */
     public function create() {
 
       if(auth()->user()->is_admin == 1) {
         $posts = Post::all();
         $category = Category::all();
+
         return view('posts.kreiraj',[
           'posts'=> $posts,
           'category'=> $category
@@ -55,8 +57,8 @@ class PostsController extends Controller
     /**
      * Store new data into the database.
      *
-     * @param  Request
-     * @return array
+     * @param  Request $request
+     * @return object
      */
     public function store(Request $request) {
 
@@ -96,31 +98,34 @@ class PostsController extends Controller
 
     }
 
-      /**
+    /**
     * Display the specified data.
     *
     * @param  int  $id
-    * @return array
+    * @return object
     */
-      public function show($id) {
+    public function show($id) {
 
-        $post = Post::find($id);
-        return view('posts.usluga')->with('post',$post);
+      $post = Post::find($id);
+
+      return view('posts.usluga')->with('post',$post);
     }
 
     /**
     * Displays the record being edited from the database.
     *
-    * @param  int
-    * @return array
+    * @param  int $id
+    * @return object
     */
     public function edit($id) {
 
       $post = Post::find($id);
       $category = Category::all();
+
       if(!auth()->user()->is_admin == 1) {
           return redirect('/')->with('error','Nemate pristup. Niste Admin!');
       }
+
       return view('posts.edit',[
         'post'=> $post,
         'category'=> $category
@@ -130,9 +135,9 @@ class PostsController extends Controller
     /**
      * Update data from database.
      *
-     * @param  Request
-     * @param  int
-     * @return array
+     * @param  Request $request
+     * @param  int $id
+     * @return object
      */
     public function update(Request $request, $id) {
 
@@ -161,6 +166,7 @@ class PostsController extends Controller
       $post->title = $request->input('title');
       $post->body = $request->input('body');
       $post->category_id = $request->input('category_id');
+      
       if($request->hasFile('image')) {
         Storage::delete('public/image/' . $post->image);
         $post->image = $fileNameToStore;
@@ -173,12 +179,13 @@ class PostsController extends Controller
     /**
     * Deletes data from the database.
     *
-    * @param  int
-    * @return array
+    * @param  int $id
+    * @return object
     */
     public function destroy($id) {
 
       $post = Post::find($id);
+      
       if(!auth()->user()->is_admin == 1) {
           return redirect('/')->with('error','Nemate pristup. Niste Admin!');
         }
