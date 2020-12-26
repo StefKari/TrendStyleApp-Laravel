@@ -8,71 +8,75 @@ use App\Post;
 
 class CategoryController extends Controller
 {
-    public function __construct() {
-      $this->middleware('is_admin',['except'=>['showAll']]);
-    }
+	public function __construct() {
+	  $this->middleware('is_admin',['except'=>['showAll']]);
+	}
 
-    /**
-     * Display a listing of the data.
-     *
-     * @param void
-     * @return View
-     */
-    public function index() {
+	/**
+	 * Display a listing of the data.
+	 *
+	 * @param  void
+	 * @return object
+	 */
+	public function index() {
 
-      $category = Category::all();
-      return view('category.kategorije')->with('category',$category);
-    }
+	  $category = Category::all();
 
-    /**
-     * Store new data into the database.
-     *
-     * @param  Request
-     * @return array
-     */
-    public function store(Request $request) {
+	  return view('category.kategorije')->with('category',$category);
+	  
+	}
 
-      $this->validate($request, [
-        'ime' => 'required'
-      ]);
+	/**
+	 * Store new data into the database.
+	 *
+	 * @param  Request $request
+	 * @return object
+	 */
+	public function store(Request $request) {
 
-        $cat = new Category();
-        $cat->name = $request->input('ime');
-        $cat->save();
+	  $this->validate($request, [
+		'ime' => 'required'
+	  ]);
 
-      return redirect('/kategorije')->with('success', 'Kategorija je dodata!');
-    }
+	  $cat = new Category();
+	  $cat->name = $request->input('ime');
+	  $cat->save();
 
-    /**
-    * Display the specified data.
-    *
-    * @param  string
-    * @return array
-    */
-    public function showAll($name) {
+	  return redirect('/kategorije')->with('success', 'Kategorija je dodata!');
+	}
 
-      $category = Category::all()->where('name','=',$name)->first();
-      if($category != NULL) {
-        $posts = Post::all()->where('category_id','=',$category->id)->sortByDesc('id');
-        return view('category.usluge-kategorija')->with('posts', $posts);
-      }
-      return redirect('/usluge');
-    }
+	/**
+	* Display the specified data.
+	*
+	* @param  string $name
+	* @return object
+	*/
+	public function showAll($name) {
+
+	  $category = Category::all()->where('name','=',$name)->first();
+	  if($category != NULL) {
+		$posts = Post::all()->where('category_id','=',$category->id)->sortByDesc('id');
+		return view('category.usluge-kategorija')->with('posts', $posts);
+	  }
+
+	  return redirect('/usluge');
+	}
 
 
-    /**
+	/**
    * Deletes data from the database.
    *
-   * @param  int
-   * @return array
+   * @param  int $id
+   * @return object
    */
-    public function destroy($id) {
+	public function destroy($id) {
 
-      $cat = Category::find($id);
-      if(!auth()->user()->is_admin == 1) {
-          return redirect('/')->with('error','Nemate pristup. Niste Admin!');
-        }
-      $cat->delete();
-      return redirect('/kategorije')->with('success','Kategorija je izbrisana!');
-    }
+	  $cat = Category::find($id);
+	  if(!auth()->user()->is_admin == 1) {
+		  return redirect('/')->with('error','Nemate pristup. Niste Admin!');
+		}
+	  $cat->delete();
+
+	  return redirect('/kategorije')->with('success','Kategorija je izbrisana!');
+	}
 }
