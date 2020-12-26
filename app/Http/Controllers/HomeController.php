@@ -21,15 +21,13 @@ class HomeController extends Controller
     }
 
     /**
-     * Show the application dashboard.
+     * Gets the application dashboard.
      *
-     * @return \Illuminate\Contracts\Support\Renderable
+     * @param  void
+     * @return object
      */
-
-
-
-     public function adminHome()
-      {
-           return view('admin');
-      }
+    public function adminHome()
+    {
+      return view('admin');
+    }
 }
