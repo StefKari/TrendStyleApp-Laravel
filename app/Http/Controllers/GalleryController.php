@@ -20,8 +20,8 @@ class GalleryController extends Controller
   /**
    * Display a listing of the data.
    *
-   * @param void
-   * @return View
+   * @param  void
+   * @return object
    */
   public function index() {
 
@@ -33,8 +33,8 @@ class GalleryController extends Controller
   /**
    * Forwards to the contact page if the admin role.
    *
-   * @param void
-   * @return View
+   * @param  void
+   * @return object
    */
   public function create() {
 
@@ -50,8 +50,8 @@ class GalleryController extends Controller
   /**
    * Store new data into the database.
    *
-   * @param  Request
-   * @return array
+   * @param  Request $request
+   * @return object
    */
   public function store(Request $request) {
 
@@ -77,8 +77,8 @@ class GalleryController extends Controller
    /**
   * Deletes data from the database.
   *
-  * @param  int
-  * @return array
+  * @param  int $id
+  * @return object
   */
    public function destroy($id) {
 
