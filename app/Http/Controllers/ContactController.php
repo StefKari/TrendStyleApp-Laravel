@@ -12,7 +12,7 @@ class ContactController extends Controller
     * Forwards to the contact page.
     *
     * @param  void
-    * @return View
+    * @return object
     */
     public function create() {
 
@@ -22,8 +22,8 @@ class ContactController extends Controller
     /**
      * Sends data to mail
      *
-     * @param  Request
-     * @return array
+     * @param  Request $request
+     * @return object
      */
     public function store(Request $request) {
 
